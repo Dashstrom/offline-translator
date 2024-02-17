@@ -46,10 +46,3 @@ def test_cli_version() -> None:
 def test_import() -> None:
     """Test if module entrypoint has correct imports."""
     import opus_ui.__main__  # NoQA: F401
-
-
-def test_hello(caplog: pytest.LogCaptureFixture) -> None:
-    """Test command hello."""
-    name = "A super secret name"
-    entrypoint(("hello", "--name", name))
-    assert name in caplog.text

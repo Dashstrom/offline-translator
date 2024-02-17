@@ -62,18 +62,21 @@
     "automodule",
     "autouse",
     "bysource",
+    "Dashstrom",
     "docstrings",
+    "doctest",
     "genindex",
+    "Instanciate",
+    "ltex",
     "modindex",
     "mypy",
+    "opus_ui",
+    "pylsp",
     "sourcelink",
     "sphinxcontrib",
     "todos",
     "typehints",
     "undoc",
-    "viewcode",
-    "doctest",
-    "Dashstrom",
-    "opus_ui"
+    "viewcode"
   ]
 }

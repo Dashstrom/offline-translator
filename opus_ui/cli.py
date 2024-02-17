@@ -5,7 +5,8 @@ import logging
 import sys
 from typing import NoReturn, Optional, Sequence
 
-from .core import METADATA, hello
+from .core import METADATA
+from .ui import OpusUI
 
 LOG_LEVELS = ["CRITICAL", "ERROR", "WARNING", "INFO", "DEBUG"]
 logger = logging.getLogger(__name__)
@@ -41,12 +42,6 @@ def get_parser() -> argparse.ArgumentParser:
         "--log-file",
         metavar="file",
         help="log file to store DEBUG level messages",
-    )
-    hello_subparser = parser.add_subparsers(dest="command_hello")
-    hello_parser = hello_subparser.add_parser("hello")
-    hello_parser.add_argument(
-        "--name",
-        help="name to greeting",
     )
     return parser
 
@@ -86,11 +81,9 @@ def entrypoint(argv: Optional[Sequence[str]] = None) -> None:
         parser = get_parser()
         args = parser.parse_args(argv)
         setup_logging(args.log_file, args.log_level)
-        if args.command_hello:
-            logging.getLogger(__name__).info(hello(args.name))
-        else:
-            parser.error("No command specified")
+        tk = OpusUI()
+        tk.mainloop()
     except Exception as err:  # NoQA: BLE001
-        logger.critical("Unexpected error", stack_info=True, exc_info=err)
+        logger.critical("Unexpected error", stack_info=False, exc_info=err)
         logger.critical("Please, report this error.")
         sys.exit(1)
