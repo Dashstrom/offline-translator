@@ -5,8 +5,8 @@ import logging
 import sys
 from typing import NoReturn, Optional, Sequence
 
-from .core import METADATA
-from .ui import OpusUI
+from .info import __summary__, __version__
+from .ui import OfflineTranslator
 
 LOG_LEVELS = ["CRITICAL", "ERROR", "WARNING", "INFO", "DEBUG"]
 logger = logging.getLogger(__name__)
@@ -23,13 +23,13 @@ def get_parser() -> argparse.ArgumentParser:
     """Prepare ArgumentParser."""
     parser = HelpArgumentParser(
         prog="opus-ui",
-        description=METADATA["Summary"],
+        description=__summary__,
         formatter_class=argparse.RawTextHelpFormatter,
     )
     parser.add_argument(
         "--version",
         action="version",
-        version=f"%(prog)s, version {METADATA['Version']}",
+        version=f"%(prog)s, version {__version__}",
     )
     parser.add_argument(
         "--log-level",
@@ -81,7 +81,7 @@ def entrypoint(argv: Optional[Sequence[str]] = None) -> None:
         parser = get_parser()
         args = parser.parse_args(argv)
         setup_logging(args.log_file, args.log_level)
-        tk = OpusUI()
+        tk = OfflineTranslator()
         tk.mainloop()
     except Exception as err:  # NoQA: BLE001
         logger.critical("Unexpected error", stack_info=False, exc_info=err)

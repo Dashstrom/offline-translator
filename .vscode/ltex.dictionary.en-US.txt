@@ -1,0 +1,6 @@
+NoQA
+pragma
+doctest
+noqa
+mypy
+PyPI

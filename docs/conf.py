@@ -9,15 +9,15 @@ https://www.sphinx-doc.org/en/master/usage/configuration.html
 import os
 import sys
 
-import opus_ui as info
+import offline_translator as info
 
 sys.path.insert(0, os.path.abspath(".."))
 
 project = info.__name__
-copyright = f"{info.METADATA['Author']} <{info.METADATA['Author-email']}>"
-author = info.METADATA["Author"]
-version = info.METADATA["Version"]
-release = info.METADATA["Version"]
+copyright = f"{info.__author__} <{info.__email__}>"
+author = info.__author__
+version = info.__version__
+release = info.__version__
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
@@ -33,7 +33,7 @@ extensions = [
 templates_path = ["_templates"]
 exclude_patterns = ["_build", "**tests**"]
 todo_include_todos = False
-html_favicon = "resources/favicon.png"
+html_favicon = "resources/logo.png"
 # If no docstring, inherit from base class
 autodoc_inherit_docstrings = True
 # Remove 'view source code' from top of page (for html, not python)

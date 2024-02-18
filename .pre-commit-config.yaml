@@ -17,7 +17,7 @@ repos:
   - repo: local
     hooks:
     - id: poe-format
-      name: ruff linter, ruff formatter and mypy
+      name: ruff ruff formatter and mypy
       entry: poetry run poe format
       language: system
       pass_filenames: false

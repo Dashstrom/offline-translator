@@ -1,56 +1,59 @@
 .. role:: bash(code)
   :language: bash
 
-*******
-opus-ui
-*******
+******************
+Offline Translator
+******************
 
-.. image:: https://github.com/Dashstrom/opus-ui/actions/workflows/docs.yml/badge.svg
-  :target: https://github.com/Dashstrom/opus-ui/actions/workflows/docs.yml
+.. image:: https://github.com/Dashstrom/offline-translator/actions/workflows/docs.yml/badge.svg
+  :target: https://github.com/Dashstrom/offline-translator/actions/workflows/docs.yml
   :alt: CI : Docs
 
-.. image:: https://github.com/Dashstrom/opus-ui/actions/workflows/lint.yml/badge.svg
-  :target: https://github.com/Dashstrom/opus-ui/actions/workflows/lint.yml
+.. image:: https://github.com/Dashstrom/offline-translator/actions/workflows/lint.yml/badge.svg
+  :target: https://github.com/Dashstrom/offline-translator/actions/workflows/lint.yml
   :alt: CI : Lint
 
-.. image:: https://github.com/Dashstrom/opus-ui/actions/workflows/tests.yml/badge.svg
-  :target: https://github.com/Dashstrom/opus-ui/actions/workflows/tests.yml
+.. image:: https://github.com/Dashstrom/offline-translator/actions/workflows/tests.yml/badge.svg
+  :target: https://github.com/Dashstrom/offline-translator/actions/workflows/tests.yml
   :alt: CI : Tests
 
-.. image:: https://img.shields.io/pypi/v/opus-ui.svg
-  :target: https://pypi.org/project/opus-ui
-  :alt: PyPI : opus-ui
+.. image:: https://img.shields.io/pypi/v/offline-translator.svg
+  :target: https://pypi.org/project/offline-translator
+  :alt: PyPI : offline-translator
 
-.. image:: https://img.shields.io/pypi/pyversions/opus-ui.svg
-  :target: https://pypi.org/project/opus-ui
+.. image:: https://img.shields.io/pypi/pyversions/offline-translator.svg
+  :target: https://pypi.org/project/offline-translator
   :alt: Python : versions
 
 .. image:: https://img.shields.io/badge/license-MIT-green.svg
-  :target: https://github.com/Dashstrom/opus-ui/blob/main/LICENSE
+  :target: https://github.com/Dashstrom/offline-translator/blob/main/LICENSE
   :alt: License : MIT
 
 Description
 ###########
 
-UI for opus models.
+Offline translator GUI using Opus-MT.
 
 Installation
 ############
 
-You can install :bash:`opus-ui` via `pip <https://pypi.org/project/pip/>`_
-from `PyPI <https://pypi.org/project>`_
+First, you need to install `Python <https://www.python.org/downloads/>`.
+
+Then you need to install :bash:`pipx` for install :bash:`offline-translator` as an application.
 
 ..  code-block:: bash
 
-  pip install opus-ui
+  pip install pipx
+  pipx ensurepath
+  pipx install offline-translator
+  offline-translator
 
 Usage
 #####
 
 ..  code-block:: bash
 
-  opus-ui --version
-  opus-ui --help
+  offline-translator
 
 Development
 ###########
@@ -70,8 +73,8 @@ for work with this project.
 
 ..  code-block:: bash
 
-  git clone https://github.com/Dashstrom/opus-ui
-  cd opus-ui
+  git clone https://github.com/Dashstrom/offline-translator
+  cd offline-translator
   poetry install --all-extras
   poetry run poe setup
   poetry shell
@@ -117,7 +120,7 @@ Ignore illegitimate warnings
 
 To ignore illegitimate warnings you can add :
 
-- **# NoQA: ERROR_CODE** on the same line for ruff.
+- **# noqa: ERROR_CODE** on the same line for ruff.
 - **# type: ignore[ERROR_CODE]** on the same line for mypy.
 - **# pragma: no cover** on the same line to ignore line for coverage.
 - **# doctest: +SKIP** on the same line for doctest.
@@ -127,9 +130,9 @@ Uninstall
 
 ..  code-block:: bash
 
-  pip uninstall opus-ui
+  pip uninstall offline-translator
 
 License
 #######
 
-This work is licensed under `MIT <https://github.com/Dashstrom/opus-ui/-/raw/main/LICENSE>`_.
+This work is licensed under `MIT <https://github.com/Dashstrom/offline-translator/-/raw/main/LICENSE>`_.

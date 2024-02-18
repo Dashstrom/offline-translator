@@ -4,7 +4,7 @@
 # ----------------------------------------------------------------------
 
 [build-system]
-requires = ["poetry-core"]
+requires = ["poetry-core", "transformers", "sentencepiece", "torch"]
 build-backend = "poetry.core.masonry.api"
 
 
@@ -15,9 +15,9 @@ build-backend = "poetry.core.masonry.api"
 
 
 [tool.poetry]
-name = "opus-ui"
+name = "offline-translator"
 version = "0.0.1"
-description = "UI for opus models."
+description = "Offline translator GUI using Opus-MT."
 license = "MIT"
 authors = [
  "Dashstrom <dashstrom.pro@gmail.com>"
@@ -26,11 +26,15 @@ maintainers  = [
   "Dashstrom <dashstrom.pro@gmail.com>",
 ]
 readme = "README.rst"
-homepage = "https://github.com/Dashstrom/opus-ui"
-repository = "https://github.com/Dashstrom/opus-ui"
-documentation = "https://github.com/Dashstrom/opus-ui"
+homepage = "https://github.com/Dashstrom/offline-translator"
+repository = "https://github.com/Dashstrom/offline-translator"
+documentation = "https://github.com/Dashstrom/offline-translator"
 keywords = [
   "python",
+  "translation",
+  "local",
+  "transformer",
+  "huggingface"
 ]
 
 # See https://pypi.org/classifiers/
@@ -82,14 +86,12 @@ classifiers = [
   "Typing :: Typed"
 ]
 packages = [
-  { include = "opus_ui" },
+  { include = "offline_translator" },
 ]
 
 
 [tool.poetry.dependencies]
 python = ">=3.8"
-
-typing-extensions = ">=4.8.0"
 
 pytest = { version = "8.0.0", optional = true }
 pytest-mock = { version = "3.12.0", optional = true }
@@ -106,7 +108,8 @@ transformers = "^4.37.2"
 torch = "^2.2.0"
 sentencepiece = "^0.1.99"
 sacremoses = "^0.1.1"
-python-lsp-server = "^1.10.0"
+numpy = "^1.24.4"
+pywin32 = {version = "^306", platform = "win32"}
 
 [tool.poetry.extras]
 test = ["pytest", "pytest-mock"]
@@ -117,8 +120,11 @@ docs = ["sphinx", "sphinx-rtd-theme", "sphinxcontrib-mermaid"]
 tasks = ["poethepoet"]
 
 [tool.poetry.scripts]
-opus-ui = "opus_ui.cli:entrypoint"
+offline-translator = "offline_translator.cli:entrypoint"
 
+[tool.poetry.build]
+generate-setup-file = false
+script = "build.py"
 
 # ----------------------------------------------------------------------
 # Poe the Poet
@@ -210,7 +216,7 @@ expr = """[
     '**/*.pyc',
     '**/*.pyo'
   ]
-  for path in pathlib.Path().resolve().glob(p)
+  for path in pathlib.Path().resolve().glob(pattern)
 ]"""
 imports = ["shutil", "sys", "pathlib"]
 
@@ -234,7 +240,7 @@ doctest_optionflags = "DONT_ACCEPT_TRUE_FOR_1 NORMALIZE_WHITESPACE IGNORE_EXCEPT
 # ----------------------------------------------------------------------
 
 [tool.coverage.run]
-source = ["opus_ui"]
+source = ["offline_translator"]
 
 
 # ----------------------------------------------------------------------
@@ -298,7 +304,7 @@ strict_equality = true
 warn_unused_configs = true
 
 [[tool.mypy.overrides]]
-module = ["transformers.*"]
+module = ["transformers.*", "win32com.*"]
 ignore_missing_imports = true
 
 
@@ -365,7 +371,7 @@ dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
 "scripts/*.py" = ["INP001"]
 
 [tool.ruff.lint.isort]
-known-first-party = ["opus_ui"]
+known-first-party = ["offline_translator"]
 
 [tool.ruff.lint.pydocstyle]
 convention = "google"

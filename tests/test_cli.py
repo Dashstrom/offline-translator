@@ -8,7 +8,7 @@ import sys
 
 import pytest
 
-from opus_ui import entrypoint
+from offline_translator import entrypoint
 
 
 def test_cli_version() -> None:
@@ -45,4 +45,4 @@ def test_cli_version() -> None:
 
 def test_import() -> None:
     """Test if module entrypoint has correct imports."""
-    import opus_ui.__main__  # NoQA: F401
+    import offline_translator.__main__  # NoQA: F401
