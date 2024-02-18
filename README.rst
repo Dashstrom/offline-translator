@@ -37,7 +37,7 @@ Offline translator GUI using Opus-MT.
 Installation
 ############
 
-First, you need to install `Python <https://www.python.org/downloads/>`.
+First, you need to install `Python <https://www.python.org/downloads/>`_.
 
 Then you need to install :bash:`pipx` for install :bash:`offline-translator` as an application.
 
@@ -46,13 +46,6 @@ Then you need to install :bash:`pipx` for install :bash:`offline-translator` as 
   pip install pipx
   pipx ensurepath
   pipx install offline-translator
-  offline-translator
-
-Usage
-#####
-
-..  code-block:: bash
-
   offline-translator
 
 Development
