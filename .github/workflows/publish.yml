@@ -9,6 +9,11 @@ jobs:
   publish:
     name: Publish on PyPI
     runs-on: ubuntu-20.04
+    environment:
+      name: pypi
+      url: https://pypi.org/p/offline-translator
+    permissions:
+      id-token: write
     steps:
       - name: Check out repository
         uses: actions/checkout@v3
@@ -43,5 +48,3 @@ jobs:
           poetry build
       - name: Publish package to PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
-        with:
-          password: ${{ secrets.PYPI_API_TOKEN }}
