@@ -30,8 +30,6 @@ jobs:
       - name: Install dependencies
         if: ${{ steps.cached-poetry-dependencies.outputs.cache-hit != 'true' }}
         run: poetry install --all-extras --no-interaction --no-root
-      - name: Disk usage
-        run: df
       - name: Install project
         run: poetry install --all-extras --no-interaction
       - name: Run linting

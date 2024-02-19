@@ -1,7 +1,7 @@
 API Documentation
 #################
 
-.. automodule:: opus_ui
+.. automodule:: offline_translator
   :members:
   :undoc-members:
   :inherited-members:

@@ -30,7 +30,7 @@ def test_cli_version() -> None:
         (
             sys.executable,
             "-m",
-            "opus_ui",
+            "offline_translator",
             "--version",
         ),
         text=True,
