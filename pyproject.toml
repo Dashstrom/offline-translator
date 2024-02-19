@@ -4,7 +4,7 @@
 # ----------------------------------------------------------------------
 
 [build-system]
-requires = ["poetry-core", "transformers", "sentencepiece", "torch"]
+requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 
