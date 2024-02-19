@@ -8,6 +8,7 @@ import os
 import pathlib
 import queue
 import string
+from traceback import print_exc
 from typing import Callable
 
 ALPHA_NUM = set(string.ascii_letters) | set(string.digits)
@@ -22,8 +23,7 @@ logger = logging.getLogger(__name__)
 
 
 def worker(
-    pending: multiprocessing.Queue[str],
-    done: multiprocessing.Queue[str],
+    pending: multiprocessing.Queue[str], done: multiprocessing.Queue[str]
 ) -> None:
     """Worker."""
     os.environ["TRANSFORMERS_OFFLINE"] = "1"
@@ -32,15 +32,8 @@ def worker(
     from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
 
     try:
-        logging.basicConfig(
-            level=logging.DEBUG,
-            format="[%(asctime)s] %(levelname)-8s - %(message)s",
-        )
-        logger.info("Starting worker")
-
         tokenizer = AutoTokenizer.from_pretrained(MODEL)
         model = AutoModelForSeq2SeqLM.from_pretrained(MODEL)
-        logger.info("Worker ready")
         while True:
             text = pending.get()
             while not pending.empty():
@@ -62,9 +55,10 @@ def worker(
                 answer = text
             done.put_nowait(answer)
     except KeyboardInterrupt:
-        logger.info("Shutdown worker")
-    except BaseException:
-        logger.exception("Got an error in worker")
+        pass
+    # Do not propagate Exception in worker, just stop it
+    except BaseException:  # noqa: BLE001
+        print_exc()
 
 
 class ModelWorker:
@@ -107,7 +101,7 @@ class ModelWorker:
         try:
             while True:
                 translation = self._done.get_nowait()
-                logger.info("Translate %r", translation)
+                logger.info("Translation %r", translation)
                 self._callback(translation)
         except queue.Empty:
             pass

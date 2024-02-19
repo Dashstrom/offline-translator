@@ -13,6 +13,7 @@ CACHE = (
     / "huggingface"
 ).resolve()
 
+
 def unsafe_download_model(
     repo_id: str,
     commit_hash: str,
@@ -23,7 +24,9 @@ def unsafe_download_model(
         cache_dir = CACHE
     cache_dir.mkdir(parents=True, exist_ok=True)
     storage_folder = cache_dir / repo_id
-    path = f"https://huggingface.co/api/models/{repo_id}/revision/{commit_hash}"
+    path = (
+        f"https://huggingface.co/api/models/{repo_id}/revision/{commit_hash}"
+    )
     with urlopen(path) as response:  # noqa: S310
         body = response.read()
         data = json.loads(body)
@@ -39,6 +42,5 @@ def unsafe_download_model(
 if __name__ == "__main__":
     model_path = unsafe_download_model(
         repo_id="Helsinki-NLP/opus-mt-fr-en",
-        commit_hash="b4a9a384c2ec68a224bbd2ee3fd5df0c71ca5b1b"
+        commit_hash="b4a9a384c2ec68a224bbd2ee3fd5df0c71ca5b1b",
     )
-    print(f"Model downloaded in {model_path}")
