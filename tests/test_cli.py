@@ -13,7 +13,7 @@ from offline_translator import entrypoint
 
 def test_cli_version() -> None:
     """Test if the command line interface is installed correctly."""
-    name = "opus-ui"
+    name = "offline-translator"
     env = os.environ.get("VIRTUAL_ENV", "")
     if env:
         if os.name == "nt":

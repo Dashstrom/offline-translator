@@ -35,7 +35,7 @@ jobs:
         run: poetry install --all-extras --no-interaction --no-root
       - name: Install project
         run: poetry install --all-extras --no-interaction
-      - name: Buil documentation
+      - name: Build documentation
         run: |
           source $VENV
           poe docs
