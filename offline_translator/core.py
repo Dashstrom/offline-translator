@@ -23,6 +23,7 @@ def worker(
 ) -> None:
     """Worker."""
     os.environ["TRANSFORMERS_OFFLINE"] = "1"
+    os.environ["HF_DATASETS_OFFLINE"] = "1"
     os.environ["HF_HUB_DISABLE_SYMLINKS_WARNING"] = "1"
     from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
 
