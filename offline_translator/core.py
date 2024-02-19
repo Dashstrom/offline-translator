@@ -11,11 +11,13 @@ import string
 from typing import Callable
 
 ALPHA_NUM = set(string.ascii_letters) | set(string.digits)
-HF_PATH = (
-    pathlib.Path(__file__).parent / "resources" / "huggingface"
+MODEL = (
+    pathlib.Path(__file__).parent
+    / "resources"
+    / "huggingface"
+    / "Helsinki-NLP"
+    / "opus-mt-fr-en"
 ).resolve()
-TOKENIZER_PATH = HF_PATH / "tokenizer"
-MODEL_PATH = HF_PATH / "model"
 logger = logging.getLogger(__name__)
 
 
@@ -36,8 +38,8 @@ def worker(
         )
         logger.info("Starting worker")
 
-        tokenizer = AutoTokenizer.from_pretrained(TOKENIZER_PATH)
-        model = AutoModelForSeq2SeqLM.from_pretrained(MODEL_PATH)
+        tokenizer = AutoTokenizer.from_pretrained(MODEL)
+        model = AutoModelForSeq2SeqLM.from_pretrained(MODEL)
         logger.info("Worker ready")
         while True:
             text = pending.get()

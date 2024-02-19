@@ -1,1 +1,0 @@
-offline_translator/resources/huggingface/** filter=lfs diff=lfs merge=lfs -text

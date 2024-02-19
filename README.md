@@ -39,7 +39,6 @@ and [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 for work with this project.
 
 ```bash
-git lfs install
 git clone https://github.com/Dashstrom/offline-translator
 cd offline-translator
 poetry install --all-extras

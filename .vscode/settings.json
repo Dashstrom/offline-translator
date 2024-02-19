@@ -80,6 +80,7 @@
     "pipx",
     "pylsp",
     "pythonw",
+    "rfilename",
     "sourcelink",
     "sphinxcontrib",
     "Targetpath",
