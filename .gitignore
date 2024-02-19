@@ -108,6 +108,3 @@ public/
 
 # Ruff cache
 .ruff_cache/
-
-# Model and tokenizer
-/offline_translator/resources/huggingface

@@ -6,7 +6,7 @@ import warnings
 from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
 
 HF_PATH = (
-    pathlib.Path(__file__).parent
+    pathlib.Path(__file__).parent.parent
     / "offline_translator"
     / "resources"
     / "huggingface"

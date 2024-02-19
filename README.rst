@@ -66,6 +66,7 @@ for work with this project.
 
 ..  code-block:: bash
 
+  git lfs install
   git clone https://github.com/Dashstrom/offline-translator
   cd offline-translator
   poetry install --all-extras
