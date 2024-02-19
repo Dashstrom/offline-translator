@@ -10,7 +10,7 @@
 
 ## Description
 
-Offline translator GUI using Opus-MT.
+Offline Translator GUI using Opus-MT.
 
 ## Installation
 

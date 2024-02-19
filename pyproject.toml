@@ -17,7 +17,7 @@ build-backend = "poetry.core.masonry.api"
 [tool.poetry]
 name = "offline-translator"
 version = "0.0.2"
-description = "Offline translator GUI using Opus-MT."
+description = "Offline Translator GUI using Opus-MT."
 license = "MIT"
 authors = [
  "Dashstrom <dashstrom.pro@gmail.com>"
