@@ -129,4 +129,4 @@ Uninstall
 License
 #######
 
-This work is licensed under `MIT <https://github.com/Dashstrom/offline-translator/-/raw/main/LICENSE>`_.
+This work is licensed under `MIT <https://github.com/Dashstrom/offline-translator/blob/main/LICENSE>`_.

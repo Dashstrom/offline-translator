@@ -1,6 +1,7 @@
 """Module for UI."""
 from __future__ import annotations
 
+import hashlib
 import logging
 import os
 import pathlib
@@ -47,12 +48,16 @@ class OfflineTranslator(tk.Tk):
         """Create shortcut."""
         desktop = pathlib.Path.home() / "Desktop"
         cache = pathlib.Path.home() / ".cache" / "offline-translator"
-        file = cache / "ask_shortcut"
-        if file.exists():
+        python = pathlib.Path(sys.executable).resolve()
+        pythonw = str(python.parent / "pythonw.exe")
+        markers = cache / "markers"
+        marker_hash = hashlib.md5(pythonw.encode("utf-8")).hexdigest()  # noqa: S324
+        marker = markers / marker_hash
+        if marker.exists():
             # Already asked
             return
-        cache.mkdir(parents=True, exist_ok=True)
-        file.write_bytes(b"")
+        markers.mkdir(parents=True, exist_ok=True)
+        marker.write_bytes(b"")
 
         if os.name == "nt":
             create_shortcut = mb.askyesno(
@@ -62,13 +67,11 @@ class OfflineTranslator(tk.Tk):
             if create_shortcut:
                 from win32com.client import Dispatch
 
-                python = pathlib.Path(sys.executable).resolve()
-                pythonw = python.parent / "pythonw.exe"
                 shell = Dispatch("WScript.Shell")
                 shortcut = shell.CreateShortCut(
                     str(desktop / "Offline Translator.lnk")
                 )
-                shortcut.Targetpath = str(pythonw)
+                shortcut.Targetpath = pythonw
                 shortcut.Arguments = "-m offline_translator"
                 shortcut.IconLocation = f"{HERE / 'resources' / 'logo.ico'}"
                 shortcut.save()

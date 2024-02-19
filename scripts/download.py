@@ -12,6 +12,7 @@ HF_PATH = (
 TOKENIZER_PATH = HF_PATH / "tokenizer"
 MODEL_PATH = HF_PATH / "model"
 
+
 def download() -> None:
     """Download model for make wheel."""
     from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
@@ -24,6 +25,7 @@ def download() -> None:
     tokenizer.save_pretrained(TOKENIZER_PATH)
     model = AutoModelForSeq2SeqLM.from_pretrained("Helsinki-NLP/opus-mt-fr-en")
     model.save_pretrained(MODEL_PATH)
+
 
 if __name__ == "__main__":
     download()
