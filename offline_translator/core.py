@@ -14,6 +14,8 @@ ALPHA_NUM = set(string.ascii_letters) | set(string.digits)
 HF_PATH = (
     pathlib.Path(__file__).parent / "resources" / "huggingface"
 ).resolve()
+TOKENIZER_PATH = HF_PATH / "tokenizer"
+MODEL_PATH = HF_PATH / "model"
 logger = logging.getLogger(__name__)
 
 
@@ -34,8 +36,8 @@ def worker(
         )
         logger.info("Starting worker")
 
-        tokenizer = AutoTokenizer.from_pretrained(HF_PATH / "tokenizer")
-        model = AutoModelForSeq2SeqLM.from_pretrained(HF_PATH / "model")
+        tokenizer = AutoTokenizer.from_pretrained(TOKENIZER_PATH)
+        model = AutoModelForSeq2SeqLM.from_pretrained(MODEL_PATH)
         logger.info("Worker ready")
         while True:
             text = pending.get()

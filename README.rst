@@ -17,13 +17,17 @@ Offline Translator
   :target: https://github.com/Dashstrom/offline-translator/actions/workflows/tests.yml
   :alt: CI : Tests
 
+.. image:: https://img.shields.io/github/repo-size/Dashstrom/offline-translator
+  :target: https://github.com/Dashstrom/offline-translator
+  :alt: Github : Repo size
+
 .. image:: https://img.shields.io/pypi/v/offline-translator.svg
   :target: https://pypi.org/project/offline-translator
   :alt: PyPI : offline-translator
 
-.. image:: https://img.shields.io/pypi/pyversions/offline-translator.svg
-  :target: https://pypi.org/project/offline-translator
-  :alt: Python : versions
+.. image:: https://pepy.tech/project/offline-translator
+  :target: https://static.pepy.tech/badge/offline-translator
+  :alt: PyPI : Download
 
 .. image:: https://img.shields.io/badge/license-MIT-green.svg
   :target: https://github.com/Dashstrom/offline-translator/blob/main/LICENSE
