@@ -74,6 +74,7 @@
     "ltex",
     "modindex",
     "mypy",
+    "myst",
     "noqa",
     "opus_ui",
     "pipx",

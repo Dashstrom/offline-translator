@@ -25,7 +25,7 @@ authors = [
 maintainers  = [
   "Dashstrom <dashstrom.pro@gmail.com>",
 ]
-readme = "README.rst"
+readme = "README.md"
 homepage = "https://github.com/Dashstrom/offline-translator"
 repository = "https://github.com/Dashstrom/offline-translator"
 documentation = "https://github.com/Dashstrom/offline-translator"
@@ -103,6 +103,7 @@ pre-commit = { version = "3.5.0", optional = true }
 sphinx = { version = "7.1.2", optional = true }
 sphinx-rtd-theme = { version = "2.0.0", optional = true }
 sphinxcontrib-mermaid = { version = "0.9.2", optional = true }
+myst-parser = { version =  "2.0.0", optional = true }
 poethepoet = { version = "0.24.4", optional = true }
 transformers = "^4.37.2"
 torch = "^2.2.0"
@@ -116,7 +117,7 @@ test = ["pytest", "pytest-mock"]
 cov = ["pytest", "pytest-mock", "coverage", "pytest-cov"]
 lint = ["pytest", "pytest-mock", "mypy", "ruff"]
 format = ["pre-commit"]
-docs = ["sphinx", "sphinx-rtd-theme", "sphinxcontrib-mermaid"]
+docs = ["sphinx", "sphinx-rtd-theme", "sphinxcontrib-mermaid", "myst-parser"]
 tasks = ["poethepoet"]
 
 [tool.poetry.scripts]

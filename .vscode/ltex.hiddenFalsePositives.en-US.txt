@@ -1,1 +1,2 @@
 {"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Qbash(code)\n:language: bash\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\Q# type: ignoreERROR_CODE on the same line for mypy.\\E$"}
