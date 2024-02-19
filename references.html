@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>API Documentation &mdash; offline_translator 0.0.2 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+    <link rel="shortcut icon" href="_static/logo.png"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=c1dcd045"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Offline Translator" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            offline_translator
+          </a>
+              <div class="version">
+                0.0.2
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index.html">User Guide</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#offline_translator.entrypoint"><code class="docutils literal notranslate"><span class="pre">entrypoint()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#offline_translator.ModelWorker"><code class="docutils literal notranslate"><span class="pre">ModelWorker</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#offline_translator.ModelWorker.__init__"><code class="docutils literal notranslate"><span class="pre">ModelWorker.__init__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#offline_translator.ModelWorker.load"><code class="docutils literal notranslate"><span class="pre">ModelWorker.load()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#offline_translator.ModelWorker.model_name"><code class="docutils literal notranslate"><span class="pre">ModelWorker.model_name()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#offline_translator.ModelWorker.submit"><code class="docutils literal notranslate"><span class="pre">ModelWorker.submit()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#offline_translator.ModelWorker.update"><code class="docutils literal notranslate"><span class="pre">ModelWorker.update()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#offline_translator.ModelWorker.close"><code class="docutils literal notranslate"><span class="pre">ModelWorker.close()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#offline_translator.ModelWorker.__del__"><code class="docutils literal notranslate"><span class="pre">ModelWorker.__del__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#offline_translator.OfflineTranslator"><code class="docutils literal notranslate"><span class="pre">OfflineTranslator</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#offline_translator.OfflineTranslator.__init__"><code class="docutils literal notranslate"><span class="pre">OfflineTranslator.__init__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#offline_translator.OfflineTranslator.ask_shortcut"><code class="docutils literal notranslate"><span class="pre">OfflineTranslator.ask_shortcut()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#offline_translator.OfflineTranslator.on_closing"><code class="docutils literal notranslate"><span class="pre">OfflineTranslator.on_closing()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#offline_translator.OfflineTranslator.update_translation"><code class="docutils literal notranslate"><span class="pre">OfflineTranslator.update_translation()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#offline_translator.OfflineTranslator.loop"><code class="docutils literal notranslate"><span class="pre">OfflineTranslator.loop()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#offline_translator.OfflineTranslator.set_icon"><code class="docutils literal notranslate"><span class="pre">OfflineTranslator.set_icon()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#offline_translator.OfflineTranslator.__del__"><code class="docutils literal notranslate"><span class="pre">OfflineTranslator.__del__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#offline_translator.OfflineTranslator.mainloop"><code class="docutils literal notranslate"><span class="pre">OfflineTranslator.mainloop()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">offline_translator</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">API Documentation</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-offline_translator">
+<span id="api-documentation"></span><h1>API Documentation<a class="headerlink" href="#module-offline_translator" title="Permalink to this heading"></a></h1>
+<p>Main module.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="offline_translator.entrypoint">
+<span class="sig-prename descclassname"><span class="pre">offline_translator.</span></span><span class="sig-name descname"><span class="pre">entrypoint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">argv</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/offline_translator/cli.html#entrypoint"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#offline_translator.entrypoint" title="Permalink to this definition"></a></dt>
+<dd><p>Entrypoint for command line interface.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>argv</strong> (<em>Sequence</em><em>[</em><em>str</em><em>] </em><em>| </em><em>None</em>) – </p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="offline_translator.ModelWorker">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">offline_translator.</span></span><span class="sig-name descname"><span class="pre">ModelWorker</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callback</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/offline_translator/core.html#ModelWorker"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#offline_translator.ModelWorker" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>callback</strong> (<em>Callable</em><em>[</em><em>[</em><em>str</em><em>]</em><em>, </em><em>None</em><em>]</em>) – </p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="offline_translator.ModelWorker.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callback</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/offline_translator/core.html#ModelWorker.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#offline_translator.ModelWorker.__init__" title="Permalink to this definition"></a></dt>
+<dd><p>Nothing to do here.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>callback</strong> (<em>Callable</em><em>[</em><em>[</em><em>str</em><em>]</em><em>, </em><em>None</em><em>]</em>) – </p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="offline_translator.ModelWorker.load">
+<span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_ModelWorker__from</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_ModelWorker__to</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/offline_translator/core.html#ModelWorker.load"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#offline_translator.ModelWorker.load" title="Permalink to this definition"></a></dt>
+<dd><p>Load language model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>_ModelWorker__from</strong> (<em>str</em>) – </p></li>
+<li><p><strong>_ModelWorker__to</strong> (<em>str</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="offline_translator.ModelWorker.model_name">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">model_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_ModelWorker__from</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_ModelWorker__to</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/offline_translator/core.html#ModelWorker.model_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#offline_translator.ModelWorker.model_name" title="Permalink to this definition"></a></dt>
+<dd><p>Get model name from destination and source language.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>_ModelWorker__from</strong> (<em>str</em>) – </p></li>
+<li><p><strong>_ModelWorker__to</strong> (<em>str</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="offline_translator.ModelWorker.submit">
+<span class="sig-name descname"><span class="pre">submit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/offline_translator/core.html#ModelWorker.submit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#offline_translator.ModelWorker.submit" title="Permalink to this definition"></a></dt>
+<dd><p>Translate text.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>text</strong> (<em>str</em>) – </p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="offline_translator.ModelWorker.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/offline_translator/core.html#ModelWorker.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#offline_translator.ModelWorker.update" title="Permalink to this definition"></a></dt>
+<dd><p>Call all callback with the current text.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="offline_translator.ModelWorker.close">
+<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/offline_translator/core.html#ModelWorker.close"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#offline_translator.ModelWorker.close" title="Permalink to this definition"></a></dt>
+<dd><p>Close the worker.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="offline_translator.ModelWorker.__del__">
+<span class="sig-name descname"><span class="pre">__del__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/offline_translator/core.html#ModelWorker.__del__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#offline_translator.ModelWorker.__del__" title="Permalink to this definition"></a></dt>
+<dd><p>Cleanup object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="offline_translator.OfflineTranslator">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">offline_translator.</span></span><span class="sig-name descname"><span class="pre">OfflineTranslator</span></span><a class="reference internal" href="_modules/offline_translator/ui.html#OfflineTranslator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#offline_translator.OfflineTranslator" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Tk</span></code></p>
+<p>Main view.</p>
+<dl class="field-list simple">
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="offline_translator.OfflineTranslator.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/offline_translator/ui.html#OfflineTranslator.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#offline_translator.OfflineTranslator.__init__" title="Permalink to this definition"></a></dt>
+<dd><p>Instantiate View.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="offline_translator.OfflineTranslator.ask_shortcut">
+<span class="sig-name descname"><span class="pre">ask_shortcut</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/offline_translator/ui.html#OfflineTranslator.ask_shortcut"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#offline_translator.OfflineTranslator.ask_shortcut" title="Permalink to this definition"></a></dt>
+<dd><p>Create shortcut.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="offline_translator.OfflineTranslator.on_closing">
+<span class="sig-name descname"><span class="pre">on_closing</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/offline_translator/ui.html#OfflineTranslator.on_closing"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#offline_translator.OfflineTranslator.on_closing" title="Permalink to this definition"></a></dt>
+<dd><p>Handle window closure.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="offline_translator.OfflineTranslator.update_translation">
+<span class="sig-name descname"><span class="pre">update_translation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/offline_translator/ui.html#OfflineTranslator.update_translation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#offline_translator.OfflineTranslator.update_translation" title="Permalink to this definition"></a></dt>
+<dd><p>Update the translation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>text</strong> (<em>str</em>) – </p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="offline_translator.OfflineTranslator.loop">
+<span class="sig-name descname"><span class="pre">loop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/offline_translator/ui.html#OfflineTranslator.loop"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#offline_translator.OfflineTranslator.loop" title="Permalink to this definition"></a></dt>
+<dd><p>Main loop event.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="offline_translator.OfflineTranslator.set_icon">
+<span class="sig-name descname"><span class="pre">set_icon</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/offline_translator/ui.html#OfflineTranslator.set_icon"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#offline_translator.OfflineTranslator.set_icon" title="Permalink to this definition"></a></dt>
+<dd><p>Set icon on windows.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>path</strong> (<em>Path</em>) – </p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="offline_translator.OfflineTranslator.__del__">
+<span class="sig-name descname"><span class="pre">__del__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/offline_translator/ui.html#OfflineTranslator.__del__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#offline_translator.OfflineTranslator.__del__" title="Permalink to this definition"></a></dt>
+<dd><p>Delete the current obtect.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="offline_translator.OfflineTranslator.mainloop">
+<span class="sig-name descname"><span class="pre">mainloop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/offline_translator/ui.html#OfflineTranslator.mainloop"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#offline_translator.OfflineTranslator.mainloop" title="Permalink to this definition"></a></dt>
+<dd><p>Call the mainloop of Tk.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>n</strong> (<em>int</em>) – </p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Offline Translator" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Dashstrom &lt;Dashstrom&gt;.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
