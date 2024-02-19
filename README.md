@@ -84,10 +84,10 @@ poetry add 'PACKAGE'
 
 To ignore illegitimate warnings you can add :
 
-- **# noqa: ERROR_CODE** on the same line for ruff.
-- **# type: ignore[ERROR_CODE]** on the same line for mypy.
-- **# pragma: no cover** on the same line to ignore line for coverage.
-- **# doctest: +SKIP** on the same line for doctest.
+- `# noqa: ERROR_CODE` on the same line for ruff.
+- `# type: ignore[ERROR_CODE]` on the same line for mypy.
+- `# pragma: no cover` on the same line to ignore line for coverage.
+- `# doctest: +SKIP` on the same line for doctest.
 
 ## Uninstall
 
