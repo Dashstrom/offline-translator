@@ -8,6 +8,12 @@ jobs:
     name: Lint
     runs-on: ubuntu-20.04
     steps:
+      - name: Maximize build space
+        uses: easimon/maximize-build-space@v10
+        with:
+          root-reserve-mb: 512
+          swap-size-mb: 1024
+          remove-dotnet: 'true'
       - name: Check out repository
         uses: actions/checkout@v3
       - name: Set up python 3.8
@@ -32,6 +38,8 @@ jobs:
       - name: Install dependencies
         if: ${{ steps.cached-poetry-dependencies.outputs.cache-hit != 'true' }}
         run: poetry install --all-extras --no-interaction --no-root
+      - name: Disk usage
+        run: df
       - name: Install project
         run: poetry install --all-extras --no-interaction
       - name: Run linting

@@ -17,11 +17,17 @@ jobs:
           - os: ubuntu-20.04
             python-version: "3.8"
           - os: ubuntu-20.04
-            python-version: "3.12"
+            python-version: "3.11"
     defaults:
       run:
         shell: bash
     steps:
+      - name: Maximize build space
+        uses: easimon/maximize-build-space@v10
+        with:
+          root-reserve-mb: 512
+          swap-size-mb: 1024
+          remove-dotnet: 'true'
       - name: Check out repository
         uses: actions/checkout@v3
       - name: Set up python ${{ matrix.python-version }}
