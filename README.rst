@@ -5,33 +5,35 @@
 Offline Translator
 ******************
 
-.. image:: https://github.com/Dashstrom/offline-translator/actions/workflows/docs.yml/badge.svg
+.. |docs| image:: https://github.com/Dashstrom/offline-translator/actions/workflows/docs.yml/badge.svg
   :target: https://github.com/Dashstrom/offline-translator/actions/workflows/docs.yml
   :alt: CI : Docs
 
-.. image:: https://github.com/Dashstrom/offline-translator/actions/workflows/lint.yml/badge.svg
+.. |lint| image:: https://github.com/Dashstrom/offline-translator/actions/workflows/lint.yml/badge.svg
   :target: https://github.com/Dashstrom/offline-translator/actions/workflows/lint.yml
   :alt: CI : Lint
 
-.. image:: https://github.com/Dashstrom/offline-translator/actions/workflows/tests.yml/badge.svg
+.. |tests| image:: https://github.com/Dashstrom/offline-translator/actions/workflows/tests.yml/badge.svg
   :target: https://github.com/Dashstrom/offline-translator/actions/workflows/tests.yml
   :alt: CI : Tests
 
-.. image:: https://img.shields.io/github/repo-size/Dashstrom/offline-translator
+.. |repo-size| image:: https://img.shields.io/github/repo-size/Dashstrom/offline-translator
   :target: https://github.com/Dashstrom/offline-translator
   :alt: Github : Repo size
 
-.. image:: https://img.shields.io/pypi/v/offline-translator.svg
+.. |version| image:: https://img.shields.io/pypi/v/offline-translator.svg
   :target: https://pypi.org/project/offline-translator
   :alt: PyPI : offline-translator
 
-.. image:: https://pepy.tech/project/offline-translator
+.. |download| image:: https://pepy.tech/project/offline-translator
   :target: https://static.pepy.tech/badge/offline-translator
   :alt: PyPI : Download
 
-.. image:: https://img.shields.io/badge/license-MIT-green.svg
+.. |license| image:: https://img.shields.io/badge/license-MIT-green.svg
   :target: https://github.com/Dashstrom/offline-translator/blob/main/LICENSE
   :alt: License : MIT
+
+|docs| |lint| |tests| |repo-size| |version| |download| |license|
 
 Description
 ###########
